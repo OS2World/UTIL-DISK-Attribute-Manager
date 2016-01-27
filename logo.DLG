@@ -1,0 +1,18 @@
+#include <os2.h>
+#include "attman.h"
+#include "interface.h"
+
+DLGTEMPLATE 600 LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG LOGO_TITLE, LOGO_DLG, 0, 0, 0, 0, 
+          NOT WS_SYNCPAINT | NOT FS_SIZEBORDER | NOT WS_VISIBLE | WS_CLIPCHILDREN
+          | WS_SAVEBITS, FCF_TITLEBAR | FCF_CLOSEBUTTON
+   BEGIN
+      CONTROL         BMP_LOGO, BMP_CTRL, 0, 0, 0, 0, WC_STATIC,
+                      SS_BITMAP | WS_VISIBLE
+      CTEXT           PROG_VERSION, TXT_VERSION, 0, 0, 0, 0,
+                      NOT WS_GROUP | DT_VCENTER | WS_VISIBLE
+                      PRESPARAMS PP_FONTNAMESIZE, "18.Tms Rmn"
+      PUSHBUTTON      "OK", LOGO_BTN, 0, 0, 0, 0, WS_GROUP | WS_VISIBLE
+   END
+END

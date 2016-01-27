@@ -1,0 +1,13 @@
+> >I'm sorry it has more bugs than the last version I distributed...
+> >The arrows button work only when the option "single select" has
+> >been checked, the date is displayed incorrectly and multiple file
+> >save is broken...
+> 
+
+- controlli 3D quando si apre menu contrestuale, poi si clicca
+  con il tasto destro sopra una statusbar cliccabile x chiudere
+  il menu la stusbar cliccabile rimane rialzata:
+  probabilmente quando si preme il bottone 2 la statusbar cattura
+  il mouse, poi la procedura del menu che precedentemente aveva
+  catturato il mouse, toglie il mouse capturing togliendolo anche
+  alla statusbar senza che sia resettata la flag di status isCaptured

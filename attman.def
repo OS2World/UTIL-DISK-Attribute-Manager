@@ -1,0 +1,10 @@
+NAME     attman     WINDOWAPI
+
+DESCRIPTION    'Attribute Manager V. 0.74.32 * (c) 1997 Alessandro Cantatore * Team OS/2 Italy'
+CODE     MOVEABLE
+DATA     MOVEABLE MULTIPLE
+STUB    'OS2STUB.EXE'
+HEAPSIZE   32768
+STACKSIZE   32768
+PROTMODE
+

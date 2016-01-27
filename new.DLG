@@ -1,0 +1,61 @@
+#include "OS2.H"
+
+DLGTEMPLATE 100 LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "DrDialog", 100, 176, 92, 385, 228, 
+           NOT FS_DLGBORDER,
+           FCF_SYSMENU | FCF_TITLEBAR | FCF_MINBUTTON | FCF_MAXBUTTON
+    BEGIN
+        LTEXT           "~Drive:", 101, 5, 194, 31, 12,
+                        NOT WS_VISIBLE | NOT WS_GROUP | DT_VCENTER
+        LTEXT           "~Folder:", 103, 34, 194, 41, 12,
+                        NOT WS_VISIBLE | NOT WS_GROUP | DT_VCENTER
+        LTEXT           "Fi~le:", 105, 176, 194, 31, 12,
+                        NOT WS_VISIBLE | NOT WS_GROUP | DT_VCENTER
+        LISTBOX         102, 5, 117, 31, 77,
+                        NOT WS_VISIBLE | WS_GROUP | LS_NOADJUSTPOS
+        LISTBOX         104, 34, 117, 141, 77, NOT WS_VISIBLE | LS_NOADJUSTPOS
+        LISTBOX         106, 176, 117, 201, 77,
+                        NOT WS_VISIBLE | LS_NOADJUSTPOS | LS_EXTENDEDSEL
+        CTEXT           "", 131, 5, 29, 0, 0,
+                        NOT WS_VISIBLE | NOT WS_GROUP | DT_VCENTER
+        AUTOCHECKBOX    "A", 108, 6, 101, 20, 12, WS_GROUP
+        AUTOCHECKBOX    "H", 110, 28, 101, 20, 12, NOT WS_TABSTOP
+        AUTOCHECKBOX    "R", 111, 50, 101, 20, 12, NOT WS_TABSTOP
+        AUTOCHECKBOX    "S", 109, 72, 101, 20, 12, NOT WS_TABSTOP
+        LTEXT           "File size:", 112, 6, 87, 84, 12,
+                        NOT WS_GROUP | DT_VCENTER
+        LTEXT           "", 113, 6, 73, 84, 12, NOT WS_GROUP | DT_VCENTER
+        LTEXT           "", 114, 6, 59, 84, 12, NOT WS_GROUP | DT_VCENTER
+        LTEXT           "", 115, 6, 45, 84, 12,
+                        NOT WS_VISIBLE | NOT WS_GROUP | DT_VCENTER
+        LTEXT           "", 116, 6, 31, 84, 12,
+                        NOT WS_VISIBLE | NOT WS_GROUP | DT_VCENTER
+        RTEXT           "~Subject:", 117, 126, 104, 46, 12,
+                        NOT WS_GROUP | DT_VCENTER
+        ENTRYFIELD      "", 118, 175, 103, 198, 8, WS_GROUP | ES_MARGIN
+        LTEXT           "~Key phrases:", 119, 127, 109, 53, 10,
+                        NOT WS_GROUP | DT_VCENTER
+        LTEXT           "~Comment:", 129, 232, 91, 51, 10,
+                        NOT WS_GROUP | DT_VCENTER
+        MLE             "", 120, 127, 52, 122, 38,
+                        NOT WS_GROUP | MLS_WORDWRAP | MLS_VSCROLL | MLS_IGNORETAB
+        PUSHBUTTON      "#102", 123, 136, 39, 0, 0
+        MLE             "", 130, 232, 29, 125, 61,
+                        NOT WS_GROUP | MLS_WORDWRAP | MLS_VSCROLL | MLS_IGNORETAB
+        PUSHBUTTON      "#100", 121, 127, 29, 0, 0
+        PUSHBUTTON      "#101", 122, 127, 29, 0, 0, NOT WS_VISIBLE
+        PUSHBUTTON      "#103", 124, 136, 29, 0, 0
+        PUSHBUTTON      "#104", 125, 155, 29, 0, 0
+        PUSHBUTTON      "#105", 126, 174, 29, 0, 0
+        PUSHBUTTON      "#106", 127, 193, 29, 0, 0
+        PUSHBUTTON      "#107", 128, 212, 29, 0, 0
+        PUSHBUTTON      "Push", 2704, 6, 7, 23, 12
+        CTEXT           "Text", 132, 43, 6, 204, 15, NOT WS_GROUP | DT_VCENTER
+        GROUPBOX        "Ordinary attributes", 107, 5, 29, 88, 86
+        CONTROL         "", 2703, 41, 5, 205, 17, WC_STATIC,
+                        WS_VISIBLE | SS_FGNDFRAME
+        CONTROL         "", 2705, 43, 4, 205, 17, WC_STATIC,
+                        WS_VISIBLE | SS_BKGNDFRAME
+    END
+END

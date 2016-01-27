@@ -1,0 +1,14 @@
+* NOTEBOOK     - dovrebbe essere ridimensionabile secondo dimensione frame.
+               - assegnare warpsans o helv 10 come carattere notebook
+* ROOT         quando Š nella root non deve visualizzare dir corrente
+* SUBJECT      entryfield: dimensione iniziale non corretta
+* SALVATAGGIO ATTRIBUTI aggiungere rilevazione errore in caso di mancata
+               scrittura attributi (es. file eseguibile aperto)
+* DIALOGO FONT dimensione stile visualizzatto non giusto (se font corrente
+               Š courier normale viene visualizzato courier bold)
+               In seguito al cambiamento font la finestra non viene ridisegnata
+               correttamente (provare ad invalidare l'intera finestra per
+               forzare un WM_PAINT)
+* MODIFICA ATTRIBUTI cambiare routine rilevazione
+* BROWSE/NOBROWSE controllare che il titolo della finestra non venga spostato
+                fuori dallo schermo

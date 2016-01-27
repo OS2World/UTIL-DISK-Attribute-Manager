@@ -1,0 +1,88 @@
+#include <os2.h>
+#include <3dctls.h>
+#include "attman.h"
+#include "interface.h"
+
+
+DLGTEMPLATE 100 LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "", DLG_MAIN, 0, 0, 379, 197,
+           NOT WS_SYNCPAINT | NOT WS_VISIBLE,
+           FCF_SYSMENU | FCF_TITLEBAR | FCF_MINMAX | FCF_SIZEBORDER |
+           FCF_TASKLIST
+    BEGIN
+        CONTROL         "~Drive:", TXT_DRIVE, 2, 167, 31, 12, CC_MENUSTXT,
+                        SS_TEXT | NOT WS_GROUP | DT_VCENTER | NOT WS_VISIBLE |
+                        DT_MNEMONIC
+        CONTROL         "", LB_DRIVE, 2, 90, 31, 77, CC_MENULBOX,
+                        WS_GROUP | LS_NOADJUSTPOS | NOT WS_VISIBLE
+        CONTROL         "~Folder:", TXT_FOLDER, 34, 167, 41, 12, CC_MENUSTXT,
+                        SS_TEXT | NOT WS_GROUP | DT_VCENTER | NOT WS_VISIBLE |
+                        DT_MNEMONIC
+        CONTROL         "", LB_FOLDER, 34, 90, 141, 77, CC_MENULBOX,
+                        LS_NOADJUSTPOS | NOT WS_VISIBLE
+        CONTROL         "Fi~le:", TXT_FILE, 176, 167, 31, 12, CC_MENUSTXT,
+                        SS_TEXT | NOT WS_GROUP | DT_VCENTER | NOT WS_VISIBLE |
+                        DT_MNEMONIC
+        LISTBOX         LB_FILE, 176, 90, 201, 77, LS_NOADJUSTPOS | NOT WS_VISIBLE |
+                        LS_EXTENDEDSEL
+        CONTROL         "Ordinary attributes:", GRP_ORDATTR, 2, 2, 88, 86,
+                        WC_3DGROUPBOX, GROUP_TXTENCLOSED |
+                        WS_VISIBLE
+        AUTOCHECKBOX    "A", CBOX_A, 6, 74, 20, 12, WS_GROUP
+        AUTOCHECKBOX    "H", CBOX_H, 28, 74, 20, 12, NOT WS_TABSTOP
+        AUTOCHECKBOX    "R", CBOX_R, 50, 74, 20, 12, NOT WS_TABSTOP
+        AUTOCHECKBOX    "S", CBOX_S, 72, 74, 20, 12, NOT WS_TABSTOP
+        CONTROL         "File size:", TXT_FSIZE, 6, 60, 84, 12, CC_MENUSTXT,
+                        SS_TEXT | NOT WS_GROUP | DT_VCENTER | WS_VISIBLE |
+                        DT_MNEMONIC
+        CONTROL         "", TXT_EASIZE, 6, 46, 84, 12, CC_MENUSTXT, SS_TEXT |
+                        NOT WS_GROUP | DT_VCENTER | WS_VISIBLE | DT_MNEMONIC
+        CONTROL         "", STB_WRITTEN, 6, 32, 84, 12, CC_HELPSBAR,
+                        NOT WS_GROUP | DT_VCENTER | WS_VISIBLE | DT_LEFT |
+                        DT_MNEMONIC | STBAR_CLICKABLE
+        CONTROL         "", STB_CREATED, 6, 18, 84, 12, CC_HELPSBAR,
+                        NOT WS_GROUP | DT_VCENTER | NOT WS_VISIBLE | DT_LEFT |
+                        DT_MNEMONIC | STBAR_CLICKABLE
+        CONTROL         "", STB_ACCESSED, 6, 4, 84, 12, CC_HELPSBAR,
+                        NOT WS_GROUP | DT_VCENTER | NOT WS_VISIBLE | DT_LEFT |
+                        DT_MNEMONIC | STBAR_CLICKABLE
+        CONTROL         "~Subject:", TXT_SUBJ, 126, 77, 46, 12, CC_MENUSTXT,
+                        SS_TEXT | NOT WS_GROUP | DT_VCENTER | DT_MNEMONIC |
+                        DT_RIGHT | WS_VISIBLE
+        ENTRYFIELD      "", EF_SUBJ, 176, 77, 196, 6,
+                        WS_GROUP | ES_MARGIN | ES_AUTOSCROLL
+        CONTROL         "~Key phrases:", TXT_KEY, 127, 82, 53, 10, CC_MENUSTXT,
+                        SS_TEXT | NOT WS_GROUP | DT_VCENTER | DT_MNEMONIC |
+                        WS_VISIBLE
+        CONTROL         "", MLE_KEY, 127, 25, 122, 38, CC_MENUMLE,
+                        NOT WS_GROUP | MLS_WORDWRAP | MLS_VSCROLL |
+                        MLS_IGNORETAB | MLS_BORDER | WS_VISIBLE
+        CONTROL         "#100", BTN_OPEN, 127, 2, -1, -1, CC_HELPBTN,
+                        BS_BITMAP | BS_AUTOSIZE | WS_VISIBLE
+        CONTROL         "#101", BTN_CLOSE, 127, 2, -1, -1, CC_HELPBTN,
+                        NOT WS_VISIBLE | BS_BITMAP | BS_AUTOSIZE
+        CONTROL         "#102", BTN_UP, 0, 0, -1, -1, CC_HELPBTN,
+                        BS_BITMAP | BS_AUTOSIZE | WS_VISIBLE
+        CONTROL         "#103", BTN_DOWN, 0, 0, -1, -1, CC_HELPBTN,
+                        BS_BITMAP | BS_AUTOSIZE | WS_VISIBLE
+        CONTROL         "#104", BTN_SAVE, 0, 0, -1, -1, CC_HELPBTN,
+                        BS_BITMAP | BS_AUTOSIZE | WS_VISIBLE
+        CONTROL         "#105", BTN_IMP, 0, 0, -1, -1, CC_HELPBTN,
+                        BS_BITMAP | BS_AUTOSIZE | WS_VISIBLE
+        CONTROL         "#106", BTN_REP, 0, 0, -1, -1, CC_HELPBTN,
+                        BS_BITMAP | BS_AUTOSIZE | WS_VISIBLE
+        CONTROL         "#107", BTN_FIND, 0, 0, -1, -1, CC_HELPBTN,
+                        BS_BITMAP | BS_AUTOSIZE | WS_VISIBLE
+        CONTROL         "~Comment:", TXT_COMNT, 232, 64, 51, 10, CC_MENUSTXT,
+                        SS_TEXT | NOT WS_GROUP | DT_VCENTER | DT_MNEMONIC |
+                        WS_VISIBLE
+        CONTROL         "", MLE_COMNT, 232, 2, 125, 61, CC_MENUMLE,
+                        WS_VISIBLE | NOT WS_GROUP | MLS_WORDWRAP |
+                        MLS_VSCROLL | MLS_IGNORETAB | MLS_BORDER
+        CONTROL         "#108", BTN_LOG, 0, 0, -1, -1, CC_HELPBTN,
+                        BS_BITMAP | BS_AUTOSIZE | WS_VISIBLE
+        CONTROL         "", SBARMSG, 0, 0, 200, 20, WC_STATUSBAR, NOT WS_GROUP |
+                        WS_VISIBLE | CCTL_BORDER1 | DT_VCENTER
+    END
+END

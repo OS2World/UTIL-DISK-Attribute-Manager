@@ -1,0 +1,20 @@
+- The data displayed was not updated when changing folder
+  or drive while the first file in the listbox was selected.
+  Now it works fine.
+- Better detection of attribute modification. Now it should
+  avoid wrong "Some attribute has been modified" messages.
+- File and EA size are now displayed together with last
+  write, creation and last access date and time.
+  To edit date and time click with mouse button1 with the
+  Alt key pressed.
+- Date and number format follows the national settings format,
+  so it will display year/month/day, day/month/year or
+  month/day/year and separate thousands by "," or "." etc.
+  according to your national settings.
+- All controls are resized according to the size of the
+  font used by the main dialog. Width is based on the font
+  average width so some kind of proportional (not monospaced)
+  font will be displayed uncorrectly.
+- All listbox can be resized and their width will be saved
+  in attman.ini.
+- Select previous/next file buttons added.

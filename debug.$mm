@@ -1,0 +1,419 @@
+:TARGET.SUFFIXES
+:DEPENDENCY..c .obj .rc .res 
+:TARGET.all
+:DEPENDENCY.
+.\debug.exe
+:RULE..rc.res
+:ACTION.Compile::Resource Compiler
+:COMMAND.
+rc.exe -r %s %|dpfF.RES
+:RULE.{C:\Workdesk\Progetti\AttMan\AM07600}.rc.res
+:ACTION.Compile::Resource Compiler
+:COMMAND.
+rc.exe -r %s %|dpfF.RES
+:RULE..c.obj
+:ACTION.Compile::C++ Compiler
+:COMMAND.
+icc.exe /Ss /V"* (c) 1997 * Alessandro Cantatore * Team OS/2 Italy" /Ti /G5 /Gu /C %s
+:RULE.{C:\Workdesk\Progetti\AttMan\AM07600}.c.obj
+:ACTION.Compile::C++ Compiler
+:COMMAND.
+icc.exe /Ss /V"* (c) 1997 * Alessandro Cantatore * Team OS/2 Italy" /Ti /G5 /Gu /C %s
+:TARGET..\debug.exe
+:DEPENDENCY.
+.\utils.obj
+.\window.obj
+.\attman.obj
+.\attribute.obj
+.\AuxDlgs.obj
+.\commands.obj
+.\datetime.obj
+.\drive.obj
+.\drop.obj
+.\eas.obj
+.\file.obj
+.\folder.obj
+.\font.obj
+.\imp4dos.obj
+.\impfileiddiz.obj
+.\import.obj
+.\impother.obj
+.\impudef.obj
+.\init.obj
+.\mainaux.obj
+.\mask.obj
+.\ordattrs.obj
+.\preferences.obj
+.\preffind.obj
+.\prefgen.obj
+.\prefimp_1.obj
+.\prefimp_2.obj
+.\prefrep_1.obj
+.\prefrep_2.obj
+.\prefsel.obj
+.\PROFILE.obj
+.\sstring.obj
+.\attman.res
+{$(LIB)}3dctls.lib
+:ACTION.Link::Linker
+:COMMAND.
+icc.exe @<<
+ /B" /de /exepack:2 /pmtype:pm /packd /optfunc /nologo"
+ /Fedebug.exe 
+ 3dctls.lib 
+ .\utils.obj
+ .\window.obj
+ .\attman.obj
+ .\attribute.obj
+ .\AuxDlgs.obj
+ .\commands.obj
+ .\datetime.obj
+ .\drive.obj
+ .\drop.obj
+ .\eas.obj
+ .\file.obj
+ .\folder.obj
+ .\font.obj
+ .\imp4dos.obj
+ .\impfileiddiz.obj
+ .\import.obj
+ .\impother.obj
+ .\impudef.obj
+ .\init.obj
+ .\mainaux.obj
+ .\mask.obj
+ .\ordattrs.obj
+ .\preferences.obj
+ .\preffind.obj
+ .\prefgen.obj
+ .\prefimp_1.obj
+ .\prefimp_2.obj
+ .\prefrep_1.obj
+ .\prefrep_2.obj
+ .\prefsel.obj
+ .\PROFILE.obj
+ .\sstring.obj
+<<
+:ACTION.Bind::Resource Bind
+:COMMAND.
+rc.exe -x2 .\attman.res debug.exe
+:TARGET..\attman.res
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\attman.rc
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}datetime.dlg
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}masksel.dlg
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}logo.dlg
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}preferences.dlg
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}prefMessages.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}progress.dlg
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}multisave.dlg
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}monosave.dlg
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}main.DLG
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}fldclose.ico
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}fldopen.ico
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}attman.ico
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE)}messages.h
+:TARGET..\utils.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\utils.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\sstring.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\sstring.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+:TARGET..\PROFILE.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\PROFILE.C
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\prefsel.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\prefsel.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}prefmessages.h
+:TARGET..\prefrep_2.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\prefrep_2.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}prefmessages.h
+:TARGET..\prefrep_1.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\prefrep_1.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}prefmessages.h
+:TARGET..\prefimp_2.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\prefimp_2.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}prefmessages.h
+:TARGET..\prefimp_1.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\prefimp_1.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}prefmessages.h
+:TARGET..\prefgen.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\prefgen.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}prefmessages.h
+:TARGET..\preffind.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\preffind.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}prefmessages.h
+:TARGET..\preferences.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\preferences.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}prefmessages.h
+:TARGET..\ordattrs.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\ordattrs.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+:TARGET..\mask.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\mask.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\mainaux.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\mainaux.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\init.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\init.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\impudef.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\impudef.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}efdlg.h
+:TARGET..\impother.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\impother.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\import.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\import.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\impfileiddiz.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\impfileiddiz.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\imp4dos.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\imp4dos.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\font.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\font.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}prefmessages.h
+:TARGET..\folder.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\folder.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+:TARGET..\file.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\file.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\eas.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\eas.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+:TARGET..\drop.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\drop.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+:TARGET..\drive.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\drive.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\datetime.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\datetime.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\commands.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\commands.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\AuxDlgs.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\AuxDlgs.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+:TARGET..\attribute.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\attribute.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\attman.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\attman.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}messages.h
+:TARGET..\window.obj
+:DEPENDENCY.
+C:\Workdesk\Progetti\AttMan\AM07600\window.c
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}attman.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}definitions.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}funzioni.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}interface.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}debug.h
+{C:\Workdesk\Progetti\AttMan\AM07600;$(INCLUDE);}preferences.h

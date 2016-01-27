@@ -1,0 +1,3 @@
+%f = file da scompattare
+%d = directory
+%i = file da importare

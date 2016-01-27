@@ -1,0 +1,20 @@
+// dialogo salvataggio singolo
+
+DLGTEMPLATE 200 LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG SZ_SAVE_, SAVE_DLG, 100, 100, 180, 50, 
+           WS_SYNCPAINT | WS_VISIBLE, FCF_SYSMENU | FCF_TITLEBAR |
+           FCF_CLOSEBUTTON
+    BEGIN
+        CONTROL         SPTR_ICONWARNING, ID_ICON, 6, 24, 0, 0, WC_STATIC,
+                        SS_SYSICON | WS_VISIBLE
+        LTEXT           SZ_SOME_ATTR_BEEN_MOD, TXT_MODIFIED,
+                        40, 24, 135, 16,
+                        NOT WS_GROUP | DT_TOP | DT_WORDBREAK
+        PUSHBUTTON      SZ_SAVE, BTN_2_SAVE, 3, 3, 56, 16, NOT WS_TABSTOP |
+                        WS_GROUP
+        PUSHBUTTON      SZ_DISCARD, BTN_2_DISCARD, 62, 3, 56, 16
+        PUSHBUTTON      SZ_CANCEL, BTN_2_CANCEL, 121, 3, 56, 16
+    END
+END
+

@@ -1,0 +1,127 @@
+#include <os2.h>
+#include "attman.h"
+#include "interface.h"
+#include "messages.h"
+
+ICON MAIN_ICON attman.ico
+ICON FLD_OPEN fldopen.ico
+ICON FLD_CLOSE fldclose.ico
+
+BITMAP BMP_BROWSE browse0.bmp
+BITMAP BMP_BROWSE1 browse1.bmp
+BITMAP BMP_UP up.bmp
+BITMAP BMP_DOWN down.bmp
+BITMAP BMP_SAVE save.bmp
+BITMAP BMP_IMPORT import.bmp
+BITMAP BMP_REPORT report.bmp
+BITMAP BMP_FIND find.bmp
+BITMAP BMP_LOG log.bmp
+BITMAP BMP_LOGO logo.bmp
+
+RCINCLUDE "main.DLG"
+RCINCLUDE "monosave.dlg"
+RCINCLUDE "multisave.dlg"
+RCINCLUDE "progress.dlg"
+RCINCLUDE "preferences.dlg"
+RCINCLUDE "logo.dlg"
+RCINCLUDE "masksel.dlg"
+RCINCLUDE "datetime.dlg"
+
+MENU MENU_MAIN
+BEGIN
+   SUBMENU "~File", -1
+   BEGIN
+      SUBMENU "Se~lect", -1
+      BEGIN
+         MENUITEM "~Browse\tF2", MN_BROWSE
+         MENUITEM SEPARATOR
+         MENUITEM "~Select all", MN_SEL_ALL
+         MENUITEM "~Deselect all", MN_DESEL_ALL
+         MENUITEM "~Mask...", MN_MASK
+      END
+      MENUITEM "~Refresh", MN_REFRESH
+      MENUITEM "~Save attributes...\tF2", MN_SAVE
+      SUBMENU "~Report", SUBMN_REPORT
+      BEGIN
+         MENUITEM "~Selected files\tCtrl+S", MN_SELECTED
+         MENUITEM "~All files\tCtrl+F", MN_ALL
+         MENUITEM "~Full file tree\tCtrl+T", MN_FTREE
+      END
+      MENUITEM "~Find...\tF7", MN_FIND
+      MENUITEM SEPARATOR
+      MENUITEM "E~xit\tF3", MN_EXIT
+   END
+   SUBMENU "~Options", -1
+   BEGIN
+      MENUITEM "~General preferences\tF6", MN_PREF
+      MENUITEM "~Font", MN_FONT
+      MENUITEM "~Read only mode\tCtrl+R", MN_READ
+   END
+   SUBMENU "~Help", -1
+   BEGIN
+      MENUITEM "Help ~index", MN_HLP_IDX
+      MENUITEM "~General help", MN_HLP_GEN
+      MENUITEM "~Using help", MN_HLP_USE
+      MENUITEM "~Keys help", MN_HLP_KEY
+      MENUITEM "~Product information", MN_HLP_PROD
+   END
+END
+
+MENU MENU_EDIT
+BEGIN
+   SUBMENU "~File", -1
+   BEGIN
+      SUBMENU "Se~lect", -1
+      BEGIN
+         MENUITEM "~Browse\tCtrl+B", MN_BROWSE
+         MENUITEM SEPARATOR
+         MENUITEM "~Select all\tCtrl+A", MN_SEL_ALL
+         MENUITEM "~Deselect all\tCtrl+D", MN_DESEL_ALL
+         MENUITEM "~Mask...\tCtrl+M", MN_MASK
+      END
+      MENUITEM "~Refresh", MN_REFRESH
+      MENUITEM "~Save attributes...\tF2", MN_SAVE
+      SUBMENU "~Report", SUBMN_REPORT
+      BEGIN
+         MENUITEM "~Selected files\tCtrl+S", MN_SELECTED
+         MENUITEM "~All files\tCtrl+F", MN_ALL
+         MENUITEM "~Full file tree\tCtrl+T", MN_FTREE
+      END
+      MENUITEM "~Find...\tF7", MN_FIND
+      MENUITEM SEPARATOR
+      MENUITEM "E~xit\tF3", MN_EXIT
+   END
+   SUBMENU "~Options", -1
+   BEGIN
+      MENUITEM "~General preferences\tF6", MN_PREF
+      MENUITEM "~Font\tF8", MN_FONT
+      MENUITEM "~Read only mode\tCtrl+R", MN_READ
+   END
+   SUBMENU "~Edit", -1
+   BEGIN
+      MENUITEM "~Undo\tCtrl+BackSpace", MN_UNDO
+      MENUITEM SEPARATOR
+      MENUITEM "Cu~t\tShift+Del", MN_CUT
+      MENUITEM "~Copy\tCtrl+Ins", MN_COPY
+      MENUITEM "~Paste\tShift+Ins", MN_PASTE
+      MENUITEM SEPARATOR
+      MENUITEM "Cl~ear\tDelete", MN_CLEAR
+      MENUITEM SEPARATOR
+      SUBMENU  "~Import", SUBMN_IMPORT
+      BEGIN
+         MENUITEM "~Automatic", MN_AUTO
+         MENUITEM "~4DOS-4OS/2 comment\tCtrl+4", MN_4
+         MENUITEM "~File_id.diz\tCtrl+Z", MN_ID_DIZ
+         MENUITEM "~User defined", MN_ID_UDEF
+         MENUITEM "~Other...\tCtrl+O", MN_OTHER
+      END
+   END
+   SUBMENU "~Help", -1
+   BEGIN
+      MENUITEM "Help ~index", MN_HLP_IDX
+      MENUITEM "~General help", MN_HLP_GEN
+      MENUITEM "~Using help", MN_HLP_USE
+      MENUITEM "~Keys help", MN_HLP_KEY
+      MENUITEM "~Product information", MN_HLP_PROD
+   END
+END   
